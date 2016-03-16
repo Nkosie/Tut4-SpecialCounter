@@ -3,21 +3,25 @@ using namespace std;
 
 class SpecialCounter
 {
-	int start;
-	int stop;
+	int strt;
+	int stp;
+	int inc;
+	int dec;
 	
 
 public:
 	SpecialCounter()
 	{
-		start = 0;
-		stop = 255;
+		strt = 0;
+		stp = 255;
+		inc = 1;
+		dec = 1;
 	}
 
 	void start(int start)
 	{
 		if (start >= 0 && start <= 255)
-			start = start;
+			strt = start;
 		else
 			cout << "Starting value should be between 0 and 255"<< endl;
 	}
@@ -25,35 +29,52 @@ public:
 	void stop(int stop)
 	{
 		if (stop >= 0 && stop <= 255)
-			stop = stop;
+			stp = stop;
 		else
 			cout << "Stopping value should be between 0 and 255" << endl;
 	}
 
-	void stepInc(int StepSize)
+	int stepInc(int StepSize)
 	{
-		if ((start + StepSize) > 255)
-			cout << "Cannot increament beyond 255!!" << endl;
-		else
+		if (StepSize > 0)
 		{
-			start += StepSize;
+			inc = StepSize;
+			if ((strt + inc) > 255)
+				cout << "Cannot increament beyond 255!!" << endl;
+			else
+			{
+				strt += StepSize;
+				return strt;
+			}
 		}
+		else
+			cout<<"cannont increament with the value less than 0 or greater than 255 \n";
 	}
 
-	void stepDec(int stepSize)
+	int stepDec(int stepSize)
 	{
-		if ((start - stepSize) < 0)
+		if ((strt - stepSize) < 0)
 			cout << "Cannot decreament upto bellow 0!!" << endl;
 		else
 		{
-			start -= stepSize;
+			strt -= stepSize;
+			return strt;
 		}
 	}
 
 };
 int main()
 {
-	SpecialCounter counter();
+	SpecialCounter cntr;
+	int value;
+	cntr.stepInc(1);
 
+	cntr.start(1);
+	cntr.stop(10);
+	while (cntr.start<cntr.stop)
+	{
+		cout<<""<<
+	}
+		
 	return 0;
 }
