@@ -18,18 +18,24 @@ public:
 		dec = -1;
 	}
 
-	void start(int st)
+	int start(int st)
 	{
 		if (st >= 0 && st <= 255)
+		{
 			strt = st;
+			return strt;
+		}
 		else
 			cout << "Starting value should be between 0 and 255"<< endl;
 	}
 
-	void stop(int sp)
+	int stop(int sp)
 	{
 		if (sp >= 0 && sp <= 255)
+		{
 			stp = sp;
+			return stp;
+		}
 		else
 			cout << "Stopping value should be between 0 and 255" << endl;
 	}
@@ -52,28 +58,35 @@ public:
 	}
 
 	int stepDec(int stepSize)
-	{
-		if ((strt - stepSize) < 0)
-			cout << "Cannot decreament upto bellow 0!!" << endl;
-		else
-		{
+	{					
 			strt -= stepSize;
-			return strt;
-		}
+			return strt;		
 	}
 
 };
 int main()
 {
 	SpecialCounter cntr;
-	int value;
-
-	cntr.start(1);
-	cntr.stop(10);
-	while (cntr.start < cntr.stop)
-	{
-		cout << "" << cntr.stepInc(1) << endl;
+	int start, stop, start2, stop2;
+	cout << "INCREAMENTING \n";
+	start= cntr.start(20);
+	stop= cntr.stop(210);
+	
+	while (start <= stop)
+	{		
+		cout << "" << start << endl;
+		start = cntr.stepInc(3);
 	}
-		
+
+	cout << "\n\n\n\n\n";
+	cout << "DECREAMENTING \n";
+	start2 = cntr.start(210);
+	stop2 = cntr.stop(0);
+
+	while (start2 >= stop2)
+	{
+		cout << "" << start2 << endl;
+		start2 = cntr.stepDec(2);
+	}
 	return 0;
 }
