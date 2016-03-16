@@ -15,21 +15,21 @@ public:
 		strt = 0;
 		stp = 255;
 		inc = 1;
-		dec = 1;
+		dec = -1;
 	}
 
-	void start(int start)
+	void start(int st)
 	{
-		if (start >= 0 && start <= 255)
-			strt = start;
+		if (st >= 0 && st <= 255)
+			strt = st;
 		else
 			cout << "Starting value should be between 0 and 255"<< endl;
 	}
 
-	void stop(int stop)
+	void stop(int sp)
 	{
-		if (stop >= 0 && stop <= 255)
-			stp = stop;
+		if (sp >= 0 && sp <= 255)
+			stp = sp;
 		else
 			cout << "Stopping value should be between 0 and 255" << endl;
 	}
@@ -67,13 +67,12 @@ int main()
 {
 	SpecialCounter cntr;
 	int value;
-	cntr.stepInc(1);
 
 	cntr.start(1);
 	cntr.stop(10);
-	while (cntr.start<cntr.stop)
+	while (cntr.start < cntr.stop)
 	{
-		cout<<""<<
+		cout << "" << cntr.stepInc(1) << endl;
 	}
 		
 	return 0;
