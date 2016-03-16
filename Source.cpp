@@ -5,13 +5,15 @@ class SpecialCounter
 {
 	int start;
 	int stop;
+	
+
+public:
 	SpecialCounter()
 	{
 		start = 0;
 		stop = 255;
-
 	}
-public:
+
 	void start(int start)
 	{
 		if (start >= 0 && start <= 255)
@@ -30,6 +32,28 @@ public:
 
 	void stepInc(int StepSize)
 	{
-		if()
+		if ((start + StepSize) > 255)
+			cout << "Cannot increament beyond 255!!" << endl;
+		else
+		{
+			start += StepSize;
+		}
 	}
+
+	void stepDec(int stepSize)
+	{
+		if ((start - stepSize) < 0)
+			cout << "Cannot decreament upto bellow 0!!" << endl;
+		else
+		{
+			start -= stepSize;
+		}
+	}
+
 };
+int main()
+{
+	SpecialCounter counter();
+
+	return 0;
+}
