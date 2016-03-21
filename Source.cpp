@@ -20,24 +20,24 @@ public:
 
 	int start(int st)
 	{
-		if (st >= 0 && st <= 255)
+		/*if (st >= 0 && st <= 255)*/
 		{
 			strt = st;
 			return strt;
 		}
-		else
-			cout << "Starting value should be between 0 and 255"<< endl;
+		/*else
+			cout << "Starting value should be between 0 and 255"<< endl;*/
 	}
 
 	int stop(int sp)
 	{
-		if (sp >= 0 && sp <= 255)
+		/*if (sp >= 0 && sp <= 255)*/
 		{
 			stp = sp;
 			return stp;
 		}
-		else
-			cout << "Stopping value should be between 0 and 255" << endl;
+		/*else
+			cout << "Stopping value should be between 0 and 255" << endl;*/
 	}
 
 	int stepInc(int StepSize)
@@ -45,22 +45,24 @@ public:
 		if (StepSize > 0)
 		{
 			inc = StepSize;
-			if ((strt + inc) > 255)
-				cout << "Cannot increament beyond 255!!" << endl;
-			else
 			{
 				strt += StepSize;
 				return strt;
 			}
 		}
 		else
-			cout<<"cannont increament with the value less than 0 or greater than 255 \n";
+			cout<<"Put positive numbers \n";
 	}
 
 	int stepDec(int stepSize)
-	{					
+	{		
+		if (stepSize > 0)
+		{
 			strt -= stepSize;
-			return strt;		
+			return strt;
+		}
+		else
+			cout << "Put positive numbers \n";				
 	}
 
 };
